@@ -6,29 +6,30 @@ while(key<a[i])
 #include "stdafx.h"
 #include<iostream>
 using namespace std;
-void insertSort(int a[], int length)
-{
-	int i = 0;
-	int j, key;
-	for (j = 1; j < length; j++)
-	{
+//插入排序
+//方法为通过插入选择是否大于前者/后者
+void INSERT_SORT(int a[],int length){
+	int i=0, j, key;
+	for (j = 1; j < length; j++){
 		key = a[j];
 		i = j - 1;
-		while (key > a[i])
-		{
+		while (key>a[i]){
 			int tmp;
 			tmp = a[i + 1];
 			a[i + 1] = a[i];
 			a[i] = tmp;
-			i = i - 1;
-			if (i < 0){ break; }
+			i--;
+			if (i < 0){
+				break;
+			}
 		}
 	}
 }
-int _tmain(int argc, _TCHAR* argv[])
+
+int main()
 {
-	int a[7] = { 1, 4, 5, 22, 33, 44, 55 };
-	insertSort(a, 7);
+	int a[7] = { 11, 42, 58, 22, 33, 44, 55 };
+	INSERT_SORT(a, 7);
 	int i;
 	for (i = 0; i < 7; i++)
 	{
@@ -36,5 +37,4 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	return 0;
 }
-
 
