@@ -12,10 +12,11 @@ Selection-Sort(arr)
 */
 #include "stdafx.h"
 using namespace std;
+//选择最小->选择次小->持续
 void change(int a[],int length)
 {
 	int j,smallest;
-	for (j = 1; j < length; j++){
+	for (j = 0; j < length; j++){
 		smallest = j;
 		for (int i = j + 1; i < length; i++){
 			if (a[i] < a[smallest]){
@@ -26,14 +27,14 @@ void change(int a[],int length)
 		a[j] = a[smallest];
 		a[smallest] = tmp;
 	}
-	for (int k = 0; k < length; k++){
-		cout << a[k] << endl;
-	}
 }
 int main()
 {
 	int a[8] = { 2, 3, 4, 38, 11, 44, 55, 22 };
 	change(a, 8);
+	for (int i = 0; i < 8; i++){
+		cout << a[i] << endl;
+	}
 	return 0;
 }
 
